@@ -1,2 +1,2 @@
-export { BookConfiguration as Configuration } from './configuration';
-export * from './service/book.service';
+export { MinioConfiguration as Configuration } from './configuration';
+export * from './service/minio.service';

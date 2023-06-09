@@ -11,8 +11,11 @@
     "lint": "mwts check",
     "lint:fix": "mwts fix"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "midwayjs",
+    "minio"
+  ],
+  "author": "d.c",
   "files": [
     "dist/**/*.js",
     "dist/**/*.d.ts",
@@ -34,5 +37,16 @@
   },
   "dependencies": {
     "minio": "^7.1.1"
+  },
+  "bugs": {
+    "url": "https://github.com/callerlibrary/mindway-minio/issues"
+  },
+  "homepage": "https://github.com/callerlibrary/mindway-minio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/callerlibrary/mindway-minio"
+  },
+  "engines": {
+    "node": ">= v12.11.0"
   }
 }

@@ -1,19 +1,6 @@
 import { Provide, Scope, ScopeEnum, Config, Init } from '@midwayjs/core';
 import * as minio from 'minio';
 
-interface MinioClientOptions extends minio.ClientOptions {
-  bucket: string;
-  endPoint: string;
-  accessKey: string;
-  secretKey: string;
-  useSSL?: boolean | undefined;
-  port?: number | undefined;
-  transport?: any;
-  sessionToken?: string | undefined;
-  partSize?: number | undefined;
-  pathStyle?: boolean | undefined;
-}
-
 @Provide()
 @Scope(ScopeEnum.Singleton)
 export class MinioService {
@@ -22,17 +9,10 @@ export class MinioService {
   @Config('minio')
   minioConfig: minio.ClientOptions;
 
-  @Config('minio')
-  AddOnConfiguration: MinioClientOptions;
-
   @Init()
   async init() {
     this.minioClient = new minio.Client(this.minioConfig);
     console.log('minio work success !!!! ');
-    const e = await this.isExists(this.AddOnConfiguration.bucket);
-    if (!e) {
-      this.createBucket(this.AddOnConfiguration.bucket, 'cn-north-1');
-    }
   }
   /**
    * 判断桶是否存在

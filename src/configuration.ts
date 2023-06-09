@@ -16,7 +16,7 @@ import { MinioService } from './service/minio.service';
     },
   ],
 })
-export class BookConfiguration {
+export class MinioConfiguration {
   async onReady(container: IMidwayContainer) {
     // TODO something
     await container.getAsync(MinioService);

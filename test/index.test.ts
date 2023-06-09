@@ -8,7 +8,6 @@ describe('/test/index.test.ts', () => {
         custom
       ]
     });
-    const bookService = await app.getApplicationContext().getAsync(custom.BookService);
-    expect(await bookService.getBookById()).toEqual('hello world');
+    const minioService = await app.getApplicationContext().getAsync(custom.MinioService);
   });
 });

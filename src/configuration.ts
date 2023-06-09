@@ -1,5 +1,8 @@
-import { Configuration } from '@midwayjs/core';
+import { Configuration, IMidwayContainer } from '@midwayjs/core';
 import * as DefaultConfig from './config/config.default';
+import * as ProdConfig from './config/config.prod';
+import * as LocalConfig from './config/config.local';
+import * as DevelopmentConfig from './config/config.development';
 import { MinioService } from './service/minio.service';
 
 @Configuration({
@@ -7,11 +10,14 @@ import { MinioService } from './service/minio.service';
   importConfigs: [
     {
       default: DefaultConfig,
+      local: LocalConfig,
+      development: DevelopmentConfig,
+      prod: ProdConfig,
     },
   ],
 })
 export class BookConfiguration {
-  async onReady(container) {
+  async onReady(container: IMidwayContainer) {
     // TODO something
     await container.getAsync(MinioService);
   }
